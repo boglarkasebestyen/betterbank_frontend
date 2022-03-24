@@ -45,7 +45,7 @@ function Transfer() {
 			let username = Cookies.get("username");
 			console.log("to:" + destinationUser + "from: " + username)
 			
-			const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+			const API_URL = process.env.REACT_APP_NEXT_PUBLIC_API_URL || "http://localhost:1337";
 			const response = await fetch(`${API_URL}/transactions/transfer`, {
 				method: "POST",
 				headers: userToken && { Authorization: `Bearer ${userToken}` },
