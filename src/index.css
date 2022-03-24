@@ -1,0 +1,335 @@
+body {
+  min-height: 100vh;
+  /* helps sticking the footer to the bottom */
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image: url("https://i.imgur.com/YNn2KQh.png");
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; 
+}
+
+/* container for nav links, card, footer */
+/*  with max-width the card and the nav + hamburger menu has a smoother transition when resizing*/
+.container {
+  max-width: 60em;
+}
+
+/* CARD */
+div.cardContainer {
+  margin: 0 auto;
+  /* to make space on the right for the logout button */
+  padding: 1em;
+  height: 55em;
+  opacity: 0.9;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 1em;
+}
+
+.card-body {
+  max-height: 42em;
+  margin: 0 auto;
+  max-width: 100%;
+  min-width: 22em;
+  opacity: 0.9;
+}
+
+/* "Account log in" */
+.card-header {
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  /* the color of bootstrap "warning" color */
+  /* background: #fabf1a; */
+  background: none;
+  border-style: none;
+  font-size: 1.8em;
+  font-weight: bolder;
+}
+
+/* texts on cards */
+.card-text {
+  font-size: 1.2em;
+  margin: 0 auto;
+}
+
+/* don't have an account yet? text on Login page*/
+.account-text {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.invest-text {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.username {
+  text-align: right;
+  padding: 0.5em;
+  position: inline-block;
+  font-weight: bold;
+}
+
+
+/* NAVIGATION 
+
+It is to be noted that in the CSS definition, 
+a:hover must come after a:link and a:visited 
+and also a:active must come after the a:hover 
+in order to be effective.
+*/
+
+.disabled-link {
+  pointer-events: none;
+  background: red;
+}
+
+.navbar.navbar-expand-lg.navbar-light {
+  background: #fff;
+  opacity: 0.8;
+  /* will this help with having space for username in the right corner? */
+  padding-bottom: 1.9em;
+}
+
+
+.nav-link {
+  display: inline-block;
+	border-radius: 0.25em;  
+	cursor: pointer;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.nav-link:hover {
+  background: #033C5A;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;  
+}
+
+.nav-link.current {
+  /* background: #008080; */
+  color: #033C5A;
+}
+
+/* hovering over the navigation links */
+.nav-link.pl-2.pr-2.mt-2.ml-1:hover {
+  color: #FFC72C;
+}
+
+/* BANK LOGO */
+.banklogo {
+  height: 4.5em;
+}
+
+/* 
+ - changing the font color to a shade of #fff;
+ when the nav item is clicked 
+ (otherwise it looks like it's disabled, comes from Bootstrap)
+ - has to be as specific as it can get
+ - .navbar-nav is the parent, and we need the item that's both .nav-link and current
+*/
+.navbar-nav .nav-link.current {
+  color: #FFC72C;
+  font-weight: bold;
+  background: #033C5A;
+}
+
+
+/* INPUT FIELD + INPUT FOCUS */
+input.form-control {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 1em;
+  max-width: 22em;
+  margin: 0 auto;
+}
+
+input.form-control:focus {
+  background:#f2edc9;
+  color: #000;
+}
+
+h5, h6 {
+  color: #000;
+} 
+
+/* SUBMIT BUTTONS */
+#submitbutton {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+/* this stays */
+#logout {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+button.submitBtn.btn.btn-light {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0.5em;
+}
+
+/* order: first hover */
+/* for specificity reasons, it has to be written like this */
+button.submitBtn.btn-light:not(:disabled):not(:disabled):active {
+  /* background: #fb705d; */
+  background: #033C5A;
+  color: #fff;
+  -webkit-transition-duration: 0s; 
+  transition-duration: 0s;  
+}
+
+/* then active */
+/* disable hover on disabled buttons */
+button.submitBtn.btn-light:disabled:hover {
+  pointer-events: none;
+}
+
+/* when button is not disabled, apply hover effect */
+button.submitBtn.btn-light:not(:disabled):hover { 
+  background: #033C5A;
+  color: #fff;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;  
+}
+
+
+/* SUCCESS AND ERROR MESSAGES */
+/* .messageContainer {
+} */
+
+.error {
+  display: block;
+  /* leaving padding in doesn't let the success messages / form to be the same height in Log in and Create Account */
+  padding: 0.35em;
+  font-size: 1em;
+  line-height: 1.6em;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 1em;
+  background: orange;
+  margin-bottom: 0.2em;
+}
+
+/* the div in which I have a h5 and a p with the messages */
+.successMessage {
+  margin-top: -2em;
+  margin-bottom: 1.3em;
+  display: block;
+  padding: 0.8em;
+	border-radius: 0.5em;
+  line-height: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 1em;
+  background: orange;
+}
+
+
+.message p {
+  display: block;
+  text-align: center;
+}
+
+
+.getalldata {
+  overflow-y: scroll; 
+  margin: 0 auto;
+  padding: 1em;
+  max-height: 40em;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 1em;
+  background: #fff; 
+  opacity: 0.9;
+}
+
+  
+table {
+  border: 2px solid forestgreen;
+  width: 44em;
+}
+  
+th {
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+  
+td {
+  border-bottom: 1px solid black;
+  text-align: center;
+  
+}
+
+
+/* FOOTER */
+/* wraps the entire navbar and footer to give it a blurr effect without blurring out the text*/
+.blurr {
+  backdrop-filter: blur(0.1em);
+  margin-top: auto;
+  box-shadow: 0 4px 8px 0 rgba(247, 239, 239, 0.2), 0 6px 50px 0 rgba(179, 174, 174, 0.19);
+	border-radius: 1em;
+}  
+
+.footer {
+  display: inline-block;
+  /* STICKS TO BOTTOM */
+  margin-top: auto;
+  width: 100%;
+  bottom: 0;
+  background: #fff; 
+  opacity: 0.8;
+}
+
+.row {
+  margin: 0;
+}
+
+/* footer text */
+.description-text {
+  text-align: justify;
+  font-size: 0.9em;
+}
+
+.text-reset {
+  font-size: 0.9em;
+}
+
+/* copyright text */
+p.ft-text-rights {
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2em;
+  height: 3em;
+}
+
+hr {
+  height: 5px;
+  background: #FFC72C;
+  border: none;
+}
+
+
+
+
+
