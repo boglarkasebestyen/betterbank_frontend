@@ -10,7 +10,7 @@ This project is my 3rd semester final assignment via MIT xPro's Fullstack with M
 
 ![](https://i.imgur.com/itZccN1.jpg)
 
-##Frontend Architecture
+## Frontend Architecture
 The BetterBank application consists of three layers that are loosely coupled and can run on different machines. The presentation layer, or frontend, is written in React.js and contains the client-side code for the various operations like:
 
 - creating an account
@@ -26,7 +26,7 @@ The second layer is a Rest web-service based on the Strapi Content Management Sy
 
 The front-end makes HTTP POST requests to the service layer to manage users and transactions. The client side contains validation logic and the web service also validates all the data it receives. If all the checks pass, the service creates the relevant entries in the MongoDB collections.
 
-###React
+### React
 
 The front-end uses React.js in functional style, using hooks like useLocation, useContext, useState, useHistory. We re-use the components from the BadBank project like Card and NavigationBar. Each page is an individual React component.
 
@@ -34,19 +34,19 @@ The shared state is stored and shared via react context. We also have the shared
 
 We use Bootstrap for CSS and I almost entirely re-designed the original BadBank application.
 
-##Authentication
+## Authentication
 Authenticating to the Rest API is done via a pre-defined Strapi user. The username and password for this is stored in the env file. All the rest-endpoints are secured and only authenticated users can access them. Once we authenticate with strapi we get a JWT token and we store that in a cookie, using js-cookies. 
 
 Then this authentication token is included in every subsequent request, so we don’t have to call the authentication service again.
 Logging out is done via invalidating that token from the cookie. I do the client side validation before calling the service, to avoid unnecessary calls.
 
-##Database
+## Database
 We use the mongoose plugin for Strapi to have it use the MongoDB storage. We can run a MongoDB instance locally in docker, for development. 
 Once we create a new strapi project, it generates routes, models and controllers. We add our new routes and controllers for our newly created entities like newusers and transactions.
 
 The database.js file in strapi, contains the credentials required to connect to the MongoDB database. We can change this once we deploy in production.
 
-##Deployment
+## Deployment
 The production version is deployed on heroku as two separate projects, one for the frontend and one for the service. This is done using Heroku GIT.
 
 The .env file in the frontend project contains the URL of the service REST endpoint of our backend project.
@@ -54,14 +54,14 @@ For the database we use a MongoDB instance running in Mongo Atlas, on the cloud,
 
 We configure this mongo instance by setting up a user and allowing incoming connections. We can also connect to this with the MongoDB compass GUI.
 
-##Additional features
+## Additional features
 - transferring to an existing user
 - investing a given amount, which can, at random, double or it can be lost
 - if it double, the user is redirected to the official Lamborghini website
 - if it's lost, a gif shows saying "aaand it's gone" from South Park's "Margaritaville" episode 
 
 
-##Reflection
+## Reflection
 Things to improve in the future:
 
 - currently we are sharing to much state in the context, this can be reduced
